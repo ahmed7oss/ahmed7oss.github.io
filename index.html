@@ -1,73 +1,319 @@
-<div class="gravatar-hovercard"><style></style>
-			<div class="gravatar-hovercard__inner">
-				
-				<div class="gravatar-hovercard__header">
-					<a class="gravatar-hovercard__avatar-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank">
-						<img class="gravatar-hovercard__avatar" src="https://0.gravatar.com/avatar/c143e3f3d9b3d3250b10ecc544c5dbbbf49956fdc079ae5b9bf7888d9f54632b?s=256&amp;d=initials" width="104" height="104" alt="Ahmed Hosam">
-					</a>
-					<a class="gravatar-hovercard__personal-info-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank">
-						<h4 class="gravatar-hovercard__name">Ahmed Hosam</h4>
-						<p class="gravatar-hovercard__job">Global Procurement Leader, Alitalia Import and export</p>
-						<p class="gravatar-hovercard__location">Egypt</p>
-					</a>
-				</div>
-				<div class="gravatar-hovercard__body">
-								<p class="gravatar-hovercard__description">Global Procurement Leader | Global Sourcing • Supply Chain Management • ERP (Odoo, SAP) • Cost Optimization &amp; OTIF Delivery</p>
-							</div>
-				<div class="gravatar-hovercard__social-links">
-					<a class="gravatar-hovercard__social-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank" data-service-name="gravatar">
-						<img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/gravatar.svg" width="32" height="32" alt="Gravatar">
-					</a>
-					
-					<a class="gravatar-hovercard__social-link" href="https://www.linkedin.com/in/ahmed-hosam-sabry" target="_blank" data-service-name="linkedin">
-						<img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/linkedin.svg" width="32" height="32" alt="LinkedIn">
-					</a>
-				
-					<a class="gravatar-hovercard__social-link" href="https://github.com/ahmed7oss" target="_blank" data-service-name="github">
-						<img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/github.svg" width="32" height="32" alt="GitHub">
-					</a>
-				
-				</div>
-				
-				<div class="gravatar-hovercard__footer">
-					<a class="gravatar-hovercard__profile-url" title="https://gravatar.com/cheerfulcd4c480c04" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=profile-card" target="_blank">
-						gravatar.com/cheerfulcd4c480c04
-					</a>
-					<a class="gravatar-hovercard__profile-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=profile-card" target="_blank">
-						View profile →
-					</a>
-				</div>
-				
-				
-				<div class="gravatar-hovercard__profile-color" style="background: rgb(227, 234, 252);"></div>
-			</div>
-		<script>
-		const hovercardInner = document.querySelector('.gravatar-hovercard__inner');
+<div class="gravatar-hovercard">
+<style>
+    .gravatar-hovercard {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        max-width: 380px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        position: relative;
+    }
 
-		function openDrawer( target, container ) {
-			const selector = '.gravatar-hovercard__drawer[data-drawer-name="' + target.dataset.targetDrawer + '"]';
-			const drawer = container.querySelector( selector );
-			drawer?.classList.add( 'gravatar-hovercard__drawer--open' );
-		}
+    .gravatar-hovercard__inner {
+        position: relative;
+    }
 
-		function closeDrawer( target, container ) {
-			const selector = '.gravatar-hovercard__drawer[data-drawer-name="' + target.dataset.targetDrawer + '"]';
-			const drawer = container.querySelector( selector );
-			drawer?.classList.add( 'gravatar-hovercard__drawer--closing' );
-			drawer?.classList.remove( 'gravatar-hovercard__drawer--open' );
+    .gravatar-hovercard__profile-color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 140px;
+        z-index: 0;
+        background: linear-gradient(135deg, #e3eafc 0%, #f0f4ff 100%);
+    }
 
-			setTimeout( () => {
-				drawer?.classList.remove( 'gravatar-hovercard__drawer--closing' );
-			}, 300 );
-		}
+    .gravatar-hovercard__header {
+        position: relative;
+        z-index: 1;
+        padding: 32px 32px 24px;
+        text-align: center;
+    }
 
-		hovercardInner.querySelectorAll( '.gravatar-hovercard__button' ).forEach( ( el ) => {
-			el.addEventListener( 'click', () => openDrawer( el, hovercardInner ) );
-		} );
-		hovercardInner.querySelectorAll( '.gravatar-hovercard__drawer-close' ).forEach( ( el ) => {
-			el.addEventListener( 'click', () => closeDrawer( el, hovercardInner ) );
-		} );
-		hovercardInner.querySelectorAll( '.gravatar-hovercard__drawer-backdrop' ).forEach( ( el ) => {
-			el.addEventListener( 'click', () => closeDrawer( el, hovercardInner ) );
-		} );
-	</script></div>
+    .gravatar-hovercard__avatar-link {
+        display: inline-block;
+        margin-bottom: 16px;
+        position: relative;
+    }
+
+    .gravatar-hovercard__avatar {
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .gravatar-hovercard__avatar-link:hover .gravatar-hovercard__avatar {
+        transform: scale(1.05);
+    }
+
+    .gravatar-hovercard__personal-info-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease;
+    }
+
+    .gravatar-hovercard__personal-info-link:hover {
+        opacity: 0.8;
+    }
+
+    .gravatar-hovercard__name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 8px 0;
+        line-height: 1.3;
+    }
+
+    .gravatar-hovercard__job {
+        font-size: 0.95rem;
+        color: #2563eb;
+        margin: 0 0 4px 0;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .gravatar-hovercard__location {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .gravatar-hovercard__location::before {
+        content: '📍';
+        font-size: 0.85rem;
+    }
+
+    .gravatar-hovercard__body {
+        padding: 0 32px 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gravatar-hovercard__description {
+        font-size: 0.9rem;
+        color: #475569;
+        line-height: 1.6;
+        margin: 0;
+        text-align: center;
+    }
+
+    .gravatar-hovercard__social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 32px;
+        border-top: 1px solid #f1f5f9;
+        border-bottom: 1px solid #f1f5f9;
+        background: #f8fafc;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gravatar-hovercard__social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: white;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+
+    .gravatar-hovercard__social-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        background: #eff6ff;
+    }
+
+    .gravatar-hovercard__social-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .gravatar-hovercard__footer {
+        padding: 20px 32px;
+        background: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gravatar-hovercard__profile-url {
+        display: block;
+        font-size: 0.85rem;
+        color: #94a3b8;
+        text-decoration: none;
+        margin-bottom: 12px;
+        text-align: center;
+        word-break: break-all;
+        transition: color 0.2s ease;
+    }
+
+    .gravatar-hovercard__profile-url:hover {
+        color: #2563eb;
+    }
+
+    .gravatar-hovercard__profile-link {
+        display: block;
+        text-align: center;
+        padding: 10px 24px;
+        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .gravatar-hovercard__profile-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .gravatar-hovercard__profile-link::after {
+        content: ' →';
+        margin-left: 4px;
+    }
+
+    /* Drawer styles */
+    .gravatar-hovercard__drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: none;
+    }
+
+    .gravatar-hovercard__drawer--open {
+        display: block;
+    }
+
+    .gravatar-hovercard__drawer-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    .gravatar-hovercard__drawer-content {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 400px;
+        max-width: 90%;
+        height: 100%;
+        background: white;
+        box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        overflow-y: auto;
+    }
+
+    @media (max-width: 480px) {
+        .gravatar-hovercard {
+            max-width: 100%;
+            border-radius: 0;
+        }
+
+        .gravatar-hovercard__header,
+        .gravatar-hovercard__body,
+        .gravatar-hovercard__social-links,
+        .gravatar-hovercard__footer {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+</style>
+
+<div class="gravatar-hovercard__inner">
+    <div class="gravatar-hovercard__profile-color" style="background: linear-gradient(135deg, #e3eafc 0%, #f0f4ff 100%);"></div>
+
+    <div class="gravatar-hovercard__header">
+        <a class="gravatar-hovercard__avatar-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank" rel="noopener noreferrer">
+            <img class="gravatar-hovercard__avatar" src="https://0.gravatar.com/avatar/c143e3f3d9b3d3250b10ecc544c5dbbbf49956fdc079ae5b9bf7888d9f54632b?s=256&amp;d=initials" width="104" height="104" alt="Ahmed Hosam">
+        </a>
+        <a class="gravatar-hovercard__personal-info-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank" rel="noopener noreferrer">
+            <h4 class="gravatar-hovercard__name">Ahmed Hosam</h4>
+            <p class="gravatar-hovercard__job">Global Procurement Leader, Alitalia Import and Export</p>
+            <p class="gravatar-hovercard__location">Egypt</p>
+        </a>
+    </div>
+
+    <div class="gravatar-hovercard__body">
+        <p class="gravatar-hovercard__description">Global Procurement Leader | Global Sourcing • Supply Chain Management • ERP (Odoo, SAP) • Cost Optimization &amp; OTIF Delivery</p>
+    </div>
+
+    <div class="gravatar-hovercard__social-links">
+        <a class="gravatar-hovercard__social-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=hovercard" target="_blank" rel="noopener noreferrer" data-service-name="gravatar" title="Gravatar Profile">
+            <img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/gravatar.svg" width="32" height="32" alt="Gravatar">
+        </a>
+
+        <a class="gravatar-hovercard__social-link" href="https://www.linkedin.com/in/ahmed-hosam-sabry" target="_blank" rel="noopener noreferrer" data-service-name="linkedin" title="LinkedIn">
+            <img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/linkedin.svg" width="32" height="32" alt="LinkedIn">
+        </a>
+
+        <a class="gravatar-hovercard__social-link" href="https://github.com/ahmed7oss" target="_blank" rel="noopener noreferrer" data-service-name="github" title="GitHub">
+            <img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/github.svg" width="32" height="32" alt="GitHub">
+        </a>
+    </div>
+
+    <div class="gravatar-hovercard__footer">
+        <a class="gravatar-hovercard__profile-url" title="https://gravatar.com/cheerfulcd4c480c04" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=profile-card" target="_blank" rel="noopener noreferrer">
+            gravatar.com/cheerfulcd4c480c04
+        </a>
+        <a class="gravatar-hovercard__profile-link" href="https://gravatar.com/cheerfulcd4c480c04?utm_source=profile-card" target="_blank" rel="noopener noreferrer">
+            View profile
+        </a>
+    </div>
+</div>
+
+<script>
+const hovercardInner = document.querySelector('.gravatar-hovercard__inner');
+
+function openDrawer(target, container) {
+    const selector = '.gravatar-hovercard__drawer[data-drawer-name="' + target.dataset.targetDrawer + '"]';
+    const drawer = container.querySelector(selector);
+    drawer?.classList.add('gravatar-hovercard__drawer--open');
+}
+
+function closeDrawer(target, container) {
+    const selector = '.gravatar-hovercard__drawer[data-drawer-name="' + target.dataset.targetDrawer + '"]';
+    const drawer = container.querySelector(selector);
+    drawer?.classList.add('gravatar-hovercard__drawer--closing');
+    drawer?.classList.remove('gravatar-hovercard__drawer--open');
+
+    setTimeout(() => {
+        drawer?.classList.remove('gravatar-hovercard__drawer--closing');
+    }, 300);
+}
+
+if (hovercardInner) {
+    hovercardInner.querySelectorAll('.gravatar-hovercard__button').forEach((el) => {
+        el.addEventListener('click', () => openDrawer(el, hovercardInner));
+    });
+    hovercardInner.querySelectorAll('.gravatar-hovercard__drawer-close').forEach((el) => {
+        el.addEventListener('click', () => closeDrawer(el, hovercardInner));
+    });
+    hovercardInner.querySelectorAll('.gravatar-hovercard__drawer-backdrop').forEach((el) => {
+        el.addEventListener('click', () => closeDrawer(el, hovercardInner));
+    });
+}
+</script>
+</div>
